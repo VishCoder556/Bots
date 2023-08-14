@@ -2,7 +2,6 @@
 
 Example #1:
 
-```
-python
-print('Greetings")
+```python
+print("Greetings")
 ```
