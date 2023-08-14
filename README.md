@@ -3,6 +3,6 @@
 Example #1:
 
 ```
-java
-// Greetings
+python
+print('Greetings")
 ```
