@@ -259,55 +259,44 @@ public class Main{
     };
     
     public static void main(String[] args) throws Exception{
+        System.out.print("\u001B[32m");
         List<Question> questions = new ArrayList<Question>();
-        List<Question> correctAnswers = new ArrayList<Question>();
-        questions.add(new Question("5", "25"));
-        correctAnswers.add(new Question("5", "25"));
-        questions.add(new Question("9", "45"));
-        correctAnswers.add(new Question("9", "45"));
-        questions.add(question("3", questions));
-        correctAnswers.add(new Question("3", "15"));
-        System.out.println("Score: "+grade(questions, correctAnswers));
+        int i = 1;
+        int count = 0;
+        int totalCount = 0;
+        while(true){
+        if (i % 3 == 1){
+            questions.add(new Question("2", "1"));
+            i *= 33;
+        }else if(i % 3 == 2){
+            questions.add(new Question("2", "3"));
+            i+=totalCount%3;
+        }
+        else{
+            questions.add(new Question("2", "2"));
+            i -= i*70;
+        };
+        int res = solveEquation("1", questions);
+        if (res == 0){
+            System.out.print("0");
+        }else if (res == 2){
+            count+=count/4;
+            System.out.print(" ");
+        }else if (res == 1){
+            System.out.print(res);
+        };
+        if (count >= 50){
+            System.out.println("");
+            for (int iw=0; iw<totalCount/2; iw++){
+                System.out.print(" ");
+            };
+            totalCount++;
+            count = 0;
+        };
+        questions.remove(questions.size()-1);
+        count++;
+        }
+        // System.out.print("\u001B[37m");
     }
-    // public static void main(String[] args) throws Exception{
-    //     System.out.print("\u001B[32m");
-    //     List<Question> questions = new ArrayList<Question>();
-    //     int i = 1;
-    //     int count = 0;
-    //     int totalCount = 0;
-    //     while(true){
-    //     if (i % 3 == 1){
-    //         questions.add(new Question("2", "1"));
-    //         i *= 33;
-    //     }else if(i % 3 == 2){
-    //         questions.add(new Question("2", "3"));
-    //         i+=totalCount%3;
-    //     }
-    //     else{
-    //         questions.add(new Question("2", "2"));
-    //         i -= i*70;
-    //     };
-    //     int res = solveEquation("1", questions);
-    //     if (res == 0){
-    //         System.out.print("0");
-    //     }else if (res == 2){
-    //         count+=count/4;
-    //         System.out.print(" ");
-    //     }else if (res == 1){
-    //         System.out.print(res);
-    //     };
-    //     if (count >= 50){
-    //         System.out.println("");
-    //         for (int iw=0; iw<totalCount/2; iw++){
-    //             System.out.print(" ");
-    //         };
-    //         totalCount++;
-    //         count = 0;
-    //     };
-    //     questions.remove(questions.size()-1);
-    //     count++;
-    //     }
-    //     // System.out.print("\u001B[37m");
-    // }
 
 }
